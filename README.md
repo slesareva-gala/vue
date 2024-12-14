@@ -34,4 +34,6 @@ export default defineConfig({
 ====
 import SomeImage from '@/assets/logo/Logo.svg';
 <img :src='SomeImage' />
+====
+<img :src='require("@/assets/logo/Logo.svg")' />
 
