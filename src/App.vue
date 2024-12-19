@@ -3,18 +3,9 @@
     <h1>Тема урока: {{ title }}</h1>
 
     <ul>
-      <li class="list-item" :class="posts[0].checked ? 'checked' : ''">
-        <img :src="require(`@/assets/images/${posts[0].icon}`)" :alt="posts[0].icon">
-        <span>{{ posts[0].text }}</span>
-      </li>
-      <li :class="posts[1].checked ? 'checked' : ''">
-        <img :src="require(`@/assets/images/${posts[1].icon}`)" :alt="posts[1].icon">
-        <span>{{ posts[1].text }}</span>
-      </li>
-      <li :class="posts[2].checked ? 'checked' : ''">
-        <img :src="require(`@/assets/images/${posts[2].icon}`)" :alt="posts[2].icon">
-        <span>{{ posts[2].text }}</span>
-      </li>
+      <list-item :text="posts[0].text" :icon="posts[0].icon" />
+      <list-item :text="posts[1].text" :icon="posts[1].icon" />
+      <list-item :text="posts[2].text" :icon="posts[2].icon" />
     </ul>
     <span class="total">Всего строк: {{ totalCount }}</span>
 
@@ -22,10 +13,15 @@
 </template>
 
 <script>
+import ListItem from '@/components/ListItem.vue';
+
 export default {
+  components: { ListItem },
+  comments: { ListItem },
+
   data() {
     return {
-      title: 'Data, Computed',
+      title: 'Props',
       posts: [
         {
           id: 0,
@@ -80,7 +76,7 @@ ul {
   }
 
   li.list-item {
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
 }
 </style>
